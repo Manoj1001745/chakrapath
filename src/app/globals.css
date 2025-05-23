@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+a.title.rendered:hover{
+    text-emphasis-color: red;
+}
+img{
+    filter: brightness(80%) !important;
+}
