@@ -35,7 +35,7 @@ useEffect(()=>{
    
     <div className="container mx-auto text-center border-2 ">
       <div className='p-4 my-3 py-4'>
-      <h1 className='text-5xl text-black font-bold p-4 bg-blue-600 rounded-2xl'>{a.title.rendered}</h1>
+      <h1 className='text-4xl text-white font-bold p-4 bg-blue-600 rounded-2xl'>{a.title.rendered}</h1>
       <img className='w-full object-cover rounded-2xl py-3' src={a.featured_image_src} alt="" />
       {/* <p className='text-black p-4'>{a.excerpt.rendered}</p> */}
       </div>
@@ -78,7 +78,7 @@ useEffect(()=>{
          <div className='relative'>
            <img className='w-full h-[300px] object-cover rounded-2xl' src={a.featured_image_src} alt="" />
            <div className="w-full h-full absolute start-0 top-0 flex justify-center items-center">
-             <h1 className='text-5xl font-bold text-white'>{a.title.rendered}</h1>
+             <h1 className='text-4xl font-bold text-white'>{a.title.rendered}</h1>
            </div>
          </div>
        </div>

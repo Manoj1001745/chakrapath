@@ -3,6 +3,147 @@
 a.title.rendered:hover{
     text-emphasis-color: red;
 }
-img{
-    filter: brightness(80%) !important;
+.img-1{
+    filter: brightness(95%) !important;
+}
+
+
+
+.navbar{
+    position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+
+
+
+    .navbar li {
+      
+      color: white;
+      
+    }
+/* @media  (min-width: 768px) {
+   
+   .nav-a{
+    display: none;
+   }
+     
+
+    header, footer {
+        font-size: 14px;
+    }
+.pp-1{
+    transition: all 0.1s ease-in-out;
+    transform: scale(1.0);
+    font-size: 16px;
+}
+    
+  
+
+    .box-22{
+        box-sizing: border-box;
+        width: 100%;
+        padding: 20px;
+        
+        display: inline-block;
+       
+        margin-top: 10px;
+    }
+    .box-33{
+        box-sizing: border-box;
+        width: 100%;
+        padding: 20px;
+        
+        display: inline-block;
+       align-items: center;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    h1{
+        font-size: 16px;
+    }
+    .box-a{
+        width: 100%;
+        display: block;
+        
+        border: none;
+        
+    }
+    .text-1{
+        font-size: 12px;
+        font-weight: 600;
+        color: red;
+    }
+    .box-b{
+        border-radius: solid 2px #ccc;
+        display: block;
+       
+    }
+} */
+
+
+
+@media (max-width: 768px) {
+     
+nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        border: 0;
+    }
+    header, footer {
+        font-size: 14px;
+    }
+.pp-1{
+    transition: all 0.1s ease-in-out;
+    transform: scale(1.0);
+    font-size: 16px;
+}
+    
+    .box-11{
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        display: inline-block;
+        margin-top: 10px;
+    }
+
+    .box-22{
+        box-sizing: border-box;
+        width: 100%;
+        padding: 20px;
+        
+        display: inline-block;
+       
+        margin-top: 10px;
+    }
+    .box-33{
+        box-sizing: border-box;
+        width: 100%;
+        
+        
+        display: inline-block;
+       align-items: center;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    .nav-a{
+        display: none;
+    }
+    .box-a {
+        width: 100%;
+        display: inline-block;
+        
+        border: none;
+    }
+    .box-b{
+        border-radius: solid 2px #ccc;
+        display: inline-block;
+        width: 100%;
+        gap: 10px;
+    }
 }

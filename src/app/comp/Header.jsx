@@ -1,71 +1,94 @@
-"use client"
-import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
+"use client";
+import Link from 'next/link';
+import React, { useEffect, useState } from 'react';
 import axios from "axios";
+import { IoMenu, IoClose } from "react-icons/io5";
 
+export default function Header() {
+  const [cat, setCat] = useState([]);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-
-
-function Header() {
-let [cat, setCat]=useState([])
-useEffect(()=>{
+  useEffect(() => {
     axios.get(`https://bankingkhabar.com/wp-json/wp/v2/categories`)
-    .then(res => {
-        setCat(res.data);
-    });
-},[])
-  
+      .then(res => setCat(res.data));
+  }, []);
+
+  const toggleMenu = () => setMenuOpen(prev => !prev);
+  const closeMenu = () => setMenuOpen(false);
+
   return (
     <>
-    <header className='p-3'>
-    
-    <div className="container mx-auto justify-center">
-        <Link href="/">
-    <img className='w-[800px] mx-auto ' src="https://i0.wp.com/chakrapath.com/wp-content/uploads/2025/01/prabhu-advt-Final.webp?w=1250&ssl=1" alt="" /></Link>
-  </div>
-  <div className="container mx-auto justify-center py-2">
-    <Link href="/">
-<img className='w-[300px] mx-auto' src="https://chakrapath.com/wp-content/themes/chakrapath/img/logo.png" alt="" /></Link></div>
-
-    </header>
-
-
-    <nav className=' text-black bg-red-700'>
-        <div className="container mx-auto ">
-            <ul className='flex justify-center gap-5 font-bold text-2xl p-2 '> 
-                {cat.map(a=>(
-                    <li className='gap-5 box-border font-bold text-1xl p-2' key={a.id}><Link href={`/category/${a.id}`}>{a.name}</Link></li>
-                ))}
-                
-            </ul>
-        </div>
-    </nav>
-
-
-    <section className='p-2 border-b-2'>
-    <div className="container mx-auto flex justify-end  p-2">
-<p>
-Wednesday, Sep 19, 2025 </p>
-<span className='bg-red-700 text-white'> 3:54:47 PM</span>
-
-
-<hr />
-</div>
+      {/* ✅ Top Header Ads */}
+      <header className="py-3 bg-white">
        
+        <div className="max-w-7xl mx-auto flex justify-center py-2 px-4">
+          <Link href="/">
+            <img
+              className="w-[280px]"
+              src="https://chakrapath.com/wp-content/themes/chakrapath/img/logo.png"
+              alt="Logo"
+            />
+          </Link>
+        </div>
+      </header>
 
-    </section>
+    {/* Navbar */}
+      <nav className="bg-red-700 text-white sticky top-0 z-50">
+        <div className="nav-b container mx-auto flex items-center justify-between px-4 py-3">
+         
 
+          {/* Desktop Menu */}
+          <ul className="nav-a hidden lg:flex gap-3 flex-wrap">
+            {cat.map((a) => (
+              <li
+                key={a.id}
+                className=" px-3 py-1 text-lg hover:bg-red-600 rounded transition"
+              >
+                <Link href={`/category/${a.id}`}>{a.name}</Link>
+              </li>
+            ))}
+          </ul>
 
+          {/* Mobile Toggle Button */}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="text-3xl text-white lg:hidden"
+          >
+            {menuOpen ? <IoClose /> : <IoMenu />}
+          </button>
+        </div>
 
-    <section className='py-2'>
-    <div className="container mx-auto justify-center">
-        <Link href="/">
-    <img className='w-[700px] mx-auto ' src="https://i0.wp.com/chakrapath.com/wp-content/uploads/2025/01/prabhu-advt-Final.webp?w=1250&ssl=1" alt="" /></Link>
-  </div>
-    </section>
-    
+        {/* Mobile Menu */}
+        {menuOpen && (
+          
+          <div className="lg:hidden bg-red-800 px-4 py-2">
+            <ul className="flex flex-col gap-2">
+              {cat.map((a) => (
+                <li key={a.id}>
+                  <Link
+                    href={`/category/${a.id}`}
+                    onClick={() => setMenuOpen(false)}
+                    className="block py-2 border-b border-red-500 text-lg"
+                  >
+                    {a.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </nav>
+
+      {/* ✅ Time & Date Section */}
+      <section className="p-2 border-b-2">
+        <div className="max-w-7xl mx-auto flex justify-end gap-2 px-4">
+          <span>Wednesday, Sep 19, 2025</span>
+          <span className="bg-red-700 text-white px-2">3:54:47 PM</span>
+        </div>
+      </section>
+
+      {/* ✅ Bottom Ad */}
+     
     </>
-  )
+  );
 }
-
-export default Header
